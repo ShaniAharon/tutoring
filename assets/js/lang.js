@@ -1,5 +1,6 @@
 const textElements = {
   en: {
+    logoText: "Shani Coding",
     home: "Home",
     about: "About",
     services: "Services",
@@ -19,15 +20,19 @@ const textElements = {
     skillsTitle: "Skills",
     professionalSkills: "Professional Skills",
     skillsDescription: "I have honed a diverse set of skills that allow me to tackle various challenges in web development.",
-    contactTitle: "Contact Me",
-    namePlaceholder: "Name",
-    emailPlaceholder: "Email",
+    contactTitle: "Fill Your Info",
+    phonePlaceholder: "Phone",
+    subjectPlaceholder: "Subject",
     messagePlaceholder: "Message",
     sendButton: "Send",
+    phoneLabel: "Phone",
+    subjectLabel: "Subject",
+    messageLabel: "Message",
     footerTitle: "Shani",
     footerCopy: "© 2024 Shani. All rights reserved"
   },
   he: {
+    logoText: "שני קודינג",
     home: "בית",
     about: "אודות",
     services: "שירותים",
@@ -47,11 +52,14 @@ const textElements = {
     skillsTitle: "כישורים",
     professionalSkills: "כישורים מקצועיים",
     skillsDescription: "אני מיומן במגוון רחב של כישורים המאפשרים לי להתמודד עם אתגרים שונים בפיתוח אתרים.",
-    contactTitle: "צור קשר",
-    namePlaceholder: "שם",
-    emailPlaceholder: "אימייל",
+    contactTitle: "מלא את פרטיך",
+    phonePlaceholder: "טלפון",
+    subjectPlaceholder: "נושא",
     messagePlaceholder: "הודעה",
     sendButton: "שלח",
+    phoneLabel: "טלפון",
+    subjectLabel: "נושא",
+    messageLabel: "הודעה",
     footerTitle: "שני",
     footerCopy: "© 2024 שני. כל הזכויות שמורות"
   }
@@ -59,6 +67,7 @@ const textElements = {
 
 const switchLanguage = (lang) => {
   document.querySelector('.nav__link.active-link').textContent = textElements[lang].home;
+  document.querySelector('.nav__logo').textContent = textElements[lang].logoText;
   document.querySelectorAll('.nav__link')[1].textContent = textElements[lang].about;
   document.querySelectorAll('.nav__link')[2].textContent = textElements[lang].services;
   document.querySelectorAll('.nav__link')[3].textContent = textElements[lang].skills;
@@ -82,11 +91,18 @@ const switchLanguage = (lang) => {
   document.querySelector('.skills__subtitle').textContent = textElements[lang].professionalSkills;
   document.querySelector('.skills__text').textContent = textElements[lang].skillsDescription;
 
-  document.querySelector('#contact .section-title').textContent = textElements[lang].contactTitle;
-  // document.querySelector('.contact__input[placeholder="Name"]').setAttribute('placeholder', textElements[lang].namePlaceholder);
-  // document.querySelector('.contact__input[placeholder="Email"]').setAttribute('placeholder', textElements[lang].emailPlaceholder);
-  // document.querySelector('.contact__input[placeholder="Message"]').setAttribute('placeholder', textElements[lang].messagePlaceholder);
-  // document.querySelector('.contact__button').value = textElements[lang].sendButton;
+  document.querySelector('#contact .section-title').textContent = textElements[lang].contactMe;
+  // Update the contact form elements
+  document.querySelector('#contact .form__title').textContent = textElements[lang].contactTitle;
+  // document.querySelector('#contact .email').setAttribute('placeholder', textElements[lang].phonePlaceholder);
+  // document.querySelector('#contact .subject').setAttribute('placeholder', textElements[lang].subjectPlaceholder);
+  // document.querySelector('#contact .message').setAttribute('placeholder', textElements[lang].messagePlaceholder);
+  document.querySelector('#contact .form__button').value = textElements[lang].sendButton;
+
+  // Update the labels if needed
+  document.querySelector('#contact .form__label[for="email"]').textContent = textElements[lang].phoneLabel;
+  document.querySelector('#contact .form__label[for="subject"]').textContent = textElements[lang].subjectLabel;
+  document.querySelector('#contact .form__label[for="message"]').textContent = textElements[lang].messageLabel;
 
   document.querySelector('.footer__title').textContent = textElements[lang].footerTitle;
   document.querySelector('.footer__copy').textContent = textElements[lang].footerCopy;

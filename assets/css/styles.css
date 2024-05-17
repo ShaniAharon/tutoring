@@ -156,6 +156,7 @@ body[dir="ltr"] {
 .nav__link {
   position: relative;
   color: #fff;
+  cursor: pointer;
 }
 .nav__link:hover {
   position: relative;
