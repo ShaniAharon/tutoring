@@ -118,6 +118,18 @@ img {
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
 }
 
+/* Adjustments for RTL layout */
+body[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Ensure LTR layout is correctly displayed */
+body[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
 /*===== NAV =====*/
 .nav {
   height: var(--header-height);
@@ -639,4 +651,24 @@ img {
   .home__img {
     width: 450px;
   }
+}
+
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+body.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+body.rtl .home__img {
+  left: 0;
+  right: auto; /* Ensure the right property is unset */
+}
+
+body.ltr .home__img {
+  right: 0;
+  left: auto; /* Ensure the left property is unset */
 }
