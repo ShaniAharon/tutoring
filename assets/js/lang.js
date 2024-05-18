@@ -29,7 +29,7 @@ const textElements = {
     phoneLabel: "Phone",
     subjectLabel: "Subject",
     messageLabel: "Message",
-    footerTitle: "Shani",
+    footerTitle: "Shani Coding",
     footerCopy: "© 2024 Shani. All rights reserved"
   },
   he: {
@@ -62,7 +62,7 @@ const textElements = {
     phoneLabel: "טלפון",
     subjectLabel: "נושא",
     messageLabel: "הודעה",
-    footerTitle: "שני",
+    footerTitle: "שני קודינג",
     footerCopy: "© 2024 שני. כל הזכויות שמורות"
   },
   th: {
@@ -95,7 +95,7 @@ const textElements = {
     phoneLabel: "โทรศัพท์",
     subjectLabel: "หัวข้อ",
     messageLabel: "ข้อความ",
-    footerTitle: "ชานิ",
+    footerTitle: "ชานิ การเขียนโค้ด",
     footerCopy: "© 2024 ชานิ. สงวนลิขสิทธิ์ทั้งหมด"
   }
 };
