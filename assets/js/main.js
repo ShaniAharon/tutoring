@@ -81,3 +81,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.message').value = '';
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const encodedPhoneNumber = 'MDUyMzcxMDQwOQ==';
+    const whatsappLinks = document.querySelectorAll('#whatsapp-home, #whatsapp-footer');
+
+    const decodeBase64 = (encoded) => {
+        return atob(encoded);
+    };
+
+    const phoneNumber = decodeBase64(encodedPhoneNumber);
+
+    whatsappLinks.forEach(link => {
+        link.href = `https://wa.me/${phoneNumber}`;
+    });
+});
