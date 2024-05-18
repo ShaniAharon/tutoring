@@ -417,7 +417,8 @@ body[dir="ltr"] {
   padding: 4rem 2rem;
   border-radius: 1rem;
 
-  box-shadow: inset 0px 0px 25px rgba(92, 99, 105, 0.2);
+  /* box-shadow: inset 0px 0px 25px rgba(92, 99, 105, 0.2); */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 0 auto;
 }
 .form__title {
@@ -444,7 +445,7 @@ body[dir="ltr"] {
   background: none;
   z-index: 1;
   color: var(--second-color);
-  border: 1px #eacacb solid;
+  border: 1px #a0a0a0 solid;
 }
 .form__label {
   position: absolute;
