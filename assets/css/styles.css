@@ -544,6 +544,12 @@ body[dir="ltr"] {
     width: 200px;
   }
 }
+@media screen and (max-width: 770px) {
+  .section-title::after {
+    width: 80px;
+    top: 3rem;
+  }
+}
 @media screen and (min-width: 576px) {
   .home {
     padding: 4rem 0 2rem;
