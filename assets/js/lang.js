@@ -64,6 +64,39 @@ const textElements = {
     messageLabel: "הודעה",
     footerTitle: "שני",
     footerCopy: "© 2024 שני. כל הזכויות שמורות"
+  },
+  th: {
+    logoText: "ชานิ การเขียนโค้ด",
+    home: "หน้าแรก",
+    about: "เกี่ยวกับ",
+    services: "บริการ",
+    skills: "ทักษะ",
+    contact: "ติดต่อ",
+    greeting: "สวัสดี,<br>ฉันคือ <span class='home__title-color'>ชานิ</span><br>ครูสอนเขียนโค้ด <br> นักพัฒนาเว็บ",
+    contactMe: "ติดต่อฉัน",
+    aboutTitle: "เกี่ยวกับฉัน",
+    aboutSubtitle: "ฉันคือ ชานิ",
+    aboutDescription: "ด้วยประสบการณ์มากกว่าสามปีในฐานะครูสอนเขียนโค้ดและวิศวกรซอฟต์แวร์ที่เชี่ยวชาญด้านการพัฒนาแบบเต็มสแต็ก ฉันได้ทำงานกับสตาร์ทอัพต่างๆ เพื่อสร้างโซลูชันที่เป็นนวัตกรรม ฉันมีความหลงใหลในการสอนและช่วยให้นักเรียนประสบความสำเร็จในบู๊ตแคมป์การเขียนโค้ดและงานมอบหมายหลักสูตร",
+    servicesTitle: "บริการ",
+    webDevelopment: "การพัฒนาเว็บ",
+    webDevelopmentDescription: "รับการสอนการพัฒนาเว็บส่วนบุคคลเพื่อช่วยให้คุณเข้าใจและประยุกต์ใช้เทคโนโลยีเว็บต่างๆ",
+    assignmentHelp: "ช่วยงานที่ได้รับมอบหมาย",
+    assignmentHelpDescription: "รับความช่วยเหลือจากผู้เชี่ยวชาญเกี่ยวกับการบู๊ตแคมป์การเขียนโค้ดหรือการมอบหมายหลักสูตรของคุณเพื่อให้แน่ใจว่าคุณประสบความสำเร็จ",
+    codingWorkshops: "เวิร์กช็อปการเขียนโค้ด",
+    codingWorkshopsDescription: "เข้าร่วมเวิร์กช็อปการเขียนโค้ดแบบลงมือปฏิบัติจริงที่ออกแบบมาเพื่อเสริมทักษะและความรู้ของคุณในภาษาการเขียนโปรแกรมและกรอบงานต่างๆ",
+    skillsTitle: "ทักษะ",
+    professionalSkills: "ทักษะระดับมืออาชีพ",
+    skillsDescription: "ฉันได้ฝึกฝนทักษะที่หลากหลายซึ่งช่วยให้ฉันจัดการกับความท้าทายต่างๆ ในการพัฒนาเว็บได้",
+    contactTitle: "กรอกข้อมูลของคุณ",
+    phonePlaceholder: "โทรศัพท์",
+    subjectPlaceholder: "หัวข้อ",
+    messagePlaceholder: "ข้อความ",
+    sendButton: "ส่ง",
+    phoneLabel: "โทรศัพท์",
+    subjectLabel: "หัวข้อ",
+    messageLabel: "ข้อความ",
+    footerTitle: "ชานิ",
+    footerCopy: "© 2024 ชานิ. สงวนลิขสิทธิ์ทั้งหมด"
   }
 };
 
@@ -128,13 +161,15 @@ const switchLanguage = (lang) => {
 const detectBrowserLanguage = () => {
   const browserLang = navigator.language || navigator.userLanguage;
   console.log('browserLang', browserLang)
-  const lang = browserLang.startsWith('he') ? 'he' : 'en';
+  // const lang = browserLang.startsWith('he') ? 'he' : 'en';
+  const lang = browserLang.startsWith('he') ? 'he' : browserLang.startsWith('th') ? 'th' : 'en';
   switchLanguage(lang);
 };
 
 document.getElementById('lang-switcher').addEventListener('click', () => {
   const currentLang = document.documentElement.lang;
-  const newLang = currentLang === 'en' ? 'he' : 'en';
+  // const newLang = currentLang === 'en' ? 'he' : 'en';
+  const newLang = currentLang === 'en' ? 'he' : currentLang === 'he' ? 'th' : 'en';
   document.documentElement.lang = newLang;
   switchLanguage(newLang);
 });
