@@ -120,9 +120,22 @@ const switchLanguage = (lang) => {
 
 };
 
+
+// Detect the browser language and set the initial language
+const detectBrowserLanguage = () => {
+  const browserLang = navigator.language || navigator.userLanguage;
+  console.log('browserLang', browserLang)
+  const lang = browserLang.startsWith('he') ? 'he' : 'en';
+  switchLanguage(lang);
+};
+
 document.getElementById('lang-switcher').addEventListener('click', () => {
   const currentLang = document.documentElement.lang;
   const newLang = currentLang === 'en' ? 'he' : 'en';
   document.documentElement.lang = newLang;
   switchLanguage(newLang);
 });
+
+
+// Run the language detection on page load
+document.addEventListener('DOMContentLoaded', detectBrowserLanguage);
