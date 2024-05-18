@@ -9,6 +9,7 @@ const textElements = {
     greeting: "Hi,<br>I'm <span class='home__title-color'>Shani</span><br>Coding Instructor <br> Web Developer",
     contactMe: "Contact Me",
     aboutTitle: "About Me",
+    aboutSubtitle: "I'm Shani",
     aboutDescription: "With over three years of experience as a coding instructor and a software engineer specializing in full-stack development, I have worked with various startups to create innovative solutions. I am passionate about teaching and helping students excel in their coding bootcamps and course assignments.",
     servicesTitle: "Services",
     webDevelopment: "Web Development",
@@ -41,6 +42,7 @@ const textElements = {
     greeting: "שלום,<br>אני <span class='home__title-color'>שני</span><br>מדריך תכנות <br> ומפתח אתרים",
     contactMe: "צור קשר",
     aboutTitle: "אודותיי",
+    aboutSubtitle: "אני שני",
     aboutDescription: "עם ניסיון של מעל שלוש שנים כמדריך קוד ומהנדס תוכנה המתמחה בפיתוח פול סטאק, עבדתי עם מספר סטארטאפים ליצירת פתרונות חדשניים. אני נלהב ללמד ולעזור לתלמידים להצטיין בבוטקאמפים ובמשימות הקורס שלהם.",
     servicesTitle: "שירותים",
     webDevelopment: "פיתוח אתרים",
@@ -78,6 +80,7 @@ const switchLanguage = (lang) => {
 
   document.querySelector('#about .section-title').textContent = textElements[lang].aboutTitle;
   document.querySelector('.about__text').textContent = textElements[lang].aboutDescription;
+  document.querySelector('.about__subtitle').textContent = textElements[lang].aboutSubtitle;
 
   document.querySelector('#services .section-title').textContent = textElements[lang].servicesTitle;
   document.querySelectorAll('.services__title')[0].textContent = textElements[lang].webDevelopment;
