@@ -6,6 +6,7 @@ const textElements = {
     services: "Services",
     skills: "Skills",
     contact: "Contact",
+    pricing: "Pricing",
     greeting: "Hi,<br>I'm <span class='home__title-color'>Shani</span><br>Coding Instructor <br> Web Developer",
     contactMe: "Contact Me",
     aboutTitle: "About Me",
@@ -30,7 +31,22 @@ const textElements = {
     subjectLabel: "Subject",
     messageLabel: "Message",
     footerTitle: "Shani Coding",
-    footerCopy: "© 2024 Shani. All rights reserved"
+    footerCopy: "© 2024 Shani. All rights reserved",
+    pricing: "Pricing",
+    pricingTitle: "Pricing Plans",
+    basicPlan: "Basic",
+    basicPrice: "50",
+    basicFeature1: "1 Hour Session",
+    basicFeature2: "Personalized Tutoring",
+    standardPlan: "Standard",
+    standardPrice: "120",
+    standardFeature1: "2 Hour Session",
+    standardFeature2: "Bootcamp Assignment Help",
+    premiumPlan: "Premium",
+    premiumPrice: "200",
+    premiumFeature1: "3 Hour Session",
+    premiumFeature2: "Project Assistance",
+    getStarted: "Get Started"
   },
   he: {
     logoText: "שני קודינג",
@@ -39,6 +55,7 @@ const textElements = {
     services: "שירותים",
     skills: "כישורים",
     contact: "צור קשר",
+    pricing: "מחירים",
     greeting: "שלום,<br>אני <span class='home__title-color'>שני</span><br>מדריך תכנות <br> ומפתח אתרים",
     contactMe: "צור קשר",
     aboutTitle: "אודותיי",
@@ -63,7 +80,22 @@ const textElements = {
     subjectLabel: "נושא",
     messageLabel: "הודעה",
     footerTitle: "שני קודינג",
-    footerCopy: "© 2024 שני. כל הזכויות שמורות"
+    footerCopy: "© 2024 שני. כל הזכויות שמורות",
+    pricing: "מחירים",
+    pricingTitle: "תוכניות מחירים",
+    basicPlan: "בסיסי",
+    basicPrice: "50",
+    basicFeature1: "פגישה של שעה",
+    basicFeature2: "הדרכה מותאמת אישית",
+    standardPlan: "סטנדרט",
+    standardPrice: "120",
+    standardFeature1: "פגישה של שעתיים",
+    standardFeature2: "עזרה במשימות בוטקאמפ",
+    premiumPlan: "פרימיום",
+    premiumPrice: "200",
+    premiumFeature1: "פגישה של שלוש שעות",
+    premiumFeature2: "עזרה בפרויקטים",
+    getStarted: "התחל"
   },
   th: {
     logoText: "ชานิ การเขียนโค้ด",
@@ -96,8 +128,35 @@ const textElements = {
     subjectLabel: "หัวข้อ",
     messageLabel: "ข้อความ",
     footerTitle: "ชานิ การเขียนโค้ด",
-    footerCopy: "© 2024 ชานิ. สงวนลิขสิทธิ์ทั้งหมด"
+    footerCopy: "© 2024 ชานิ. สงวนลิขสิทธิ์ทั้งหมด",
+    pricing: "ราคา",
+    pricingTitle: "แผนราคา",
+    basicPlan: "พื้นฐาน",
+    basicPrice: "50",
+    basicFeature1: "การให้คำปรึกษา 1 ชั่วโมง",
+    basicFeature2: "การสอนแบบส่วนบุคคล",
+    standardPlan: "มาตรฐาน",
+    standardPrice: "120",
+    standardFeature1: "การให้คำปรึกษา 2 ชั่วโมง",
+    standardFeature2: "ความช่วยเหลือเกี่ยวกับงานมอบหมายในบูตแคมป์",
+    premiumPlan: "พรีเมี่ยม",
+    premiumPrice: "200",
+    premiumFeature1: "การให้คำปรึกษา 3 ชั่วโมง",
+    premiumFeature2: "ความช่วยเหลือในโครงการ",
+    getStarted: "เริ่มต้น"
   }
+};
+
+const currencyMap = {
+  en: { locale: 'en-US', currency: 'USD', rate: 1 / 3.6 },
+  he: { locale: 'he-IL', currency: 'ILS', rate: 1 },
+  th: { locale: 'th-TH', currency: 'THB', rate: 10 }
+};
+
+const formatPrice = (lang, priceUSD) => {
+  const { locale, currency, rate } = currencyMap[lang];
+  const price = priceUSD * rate;
+  return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(price);
 };
 
 const switchLanguage = (lang) => {
@@ -106,7 +165,8 @@ const switchLanguage = (lang) => {
   document.querySelectorAll('.nav__link')[1].textContent = textElements[lang].about;
   document.querySelectorAll('.nav__link')[2].textContent = textElements[lang].services;
   document.querySelectorAll('.nav__link')[3].textContent = textElements[lang].skills;
-  document.querySelectorAll('.nav__link')[4].textContent = textElements[lang].contact;
+  document.querySelectorAll('.nav__link')[4].textContent = textElements[lang].pricing;
+  document.querySelectorAll('.nav__link')[5].textContent = textElements[lang].contact;
 
   document.querySelector('.home__title').innerHTML = textElements[lang].greeting;
   document.querySelector('.button').textContent = textElements[lang].contactMe;
@@ -139,6 +199,22 @@ const switchLanguage = (lang) => {
   document.querySelector('#contact .form__label[for="email"]').textContent = textElements[lang].phoneLabel;
   document.querySelector('#contact .form__label[for="subject"]').textContent = textElements[lang].subjectLabel;
   document.querySelector('#contact .form__label[for="message"]').textContent = textElements[lang].messageLabel;
+
+  // Pricing Section
+  document.querySelector('#pricing .section-title').textContent = textElements[lang].pricingTitle;
+  document.querySelectorAll('.pricing__title')[0].textContent = textElements[lang].basicPlan;
+  document.querySelectorAll('.pricing__price')[0].textContent = formatPrice(lang, textElements[lang].basicPrice);
+  document.querySelectorAll('.pricing__feature')[0].textContent = textElements[lang].basicFeature1;
+  document.querySelectorAll('.pricing__feature')[1].textContent = textElements[lang].basicFeature2;
+  document.querySelectorAll('.pricing__title')[1].textContent = textElements[lang].standardPlan;
+  document.querySelectorAll('.pricing__price')[1].textContent = formatPrice(lang, textElements[lang].standardPrice);
+  document.querySelectorAll('.pricing__feature')[2].textContent = textElements[lang].standardFeature1;
+  document.querySelectorAll('.pricing__feature')[3].textContent = textElements[lang].standardFeature2;
+  document.querySelectorAll('.pricing__title')[2].textContent = textElements[lang].premiumPlan;
+  document.querySelectorAll('.pricing__price')[2].textContent = formatPrice(lang, textElements[lang].premiumPrice);
+  document.querySelectorAll('.pricing__feature')[4].textContent = textElements[lang].premiumFeature1;
+  document.querySelectorAll('.pricing__feature')[5].textContent = textElements[lang].premiumFeature2;
+  document.querySelectorAll('.pricing__button').forEach(button => button.textContent = textElements[lang].getStarted);
 
   document.querySelector('.footer__title').textContent = textElements[lang].footerTitle;
   document.querySelector('.footer__copy').textContent = textElements[lang].footerCopy;
