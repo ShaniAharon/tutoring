@@ -82,17 +82,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const encodedPhoneNumber = 'MDUyMzcxMDQwOQ==';
-//     const whatsappLinks = document.querySelectorAll('#whatsapp-home, #whatsapp-footer');
+document.addEventListener('DOMContentLoaded', () => {
+    const encodedPhoneNumber = 'MDUyMzcxMDQwOQ==';
+    const whatsappLinks = document.querySelectorAll('#whatsapp-home, #whatsapp-footer');
 
-//     const decodeBase64 = (encoded) => {
-//         return atob(encoded);
-//     };
+    const decodeBase64 = (encoded) => {
+        return atob(encoded);
+    };
 
-//     const phoneNumber = decodeBase64(encodedPhoneNumber);
+    const phoneNumber = decodeBase64(encodedPhoneNumber);
 
-//     whatsappLinks.forEach(link => {
-//         link.href = `https://wa.me/${phoneNumber}`;
-//     });
-// });
+    whatsappLinks.forEach(link => {
+        link.href = `https://wa.me/${phoneNumber}`;
+    });
+});
