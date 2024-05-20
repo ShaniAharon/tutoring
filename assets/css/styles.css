@@ -10,7 +10,7 @@
   --hue-color: 224;
   --first-color: hsl(var(--hue-color), 89%, 60%);
   --second-color: hsl(var(--hue-color), 56%, 12%);
-  /*===== Fuente y tipografia =====*/
+  /*===== fonts =====*/
   --body-font: "Poppins", sans-serif;
   --big-font-size: 2rem;
   --h2-font-size: 1.25rem;
@@ -74,7 +74,7 @@ img {
   display: block;
 }
 
-/*===== CLASS CSS ===== */
+/*===== CSS ===== */
 .section-title {
   position: relative;
   font-size: var(--h2-font-size);

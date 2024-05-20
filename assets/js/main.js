@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const message = document.querySelector('.message').value;
         const emailBody = message + '___Email sent from: ' + email;
 
-        const companyMail = 'shaniaharon01@gmail.com'
+        const companyMail = 'shanicoding@gmail.com'
 
         // const emailUrl = `https://mail.google.com/mail/u/0/?fs=1&to=${companyMail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}&tf=cm`
         const mailtoUrl = `mailto:${companyMail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
@@ -82,17 +82,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const encodedPhoneNumber = 'MDUyMzcxMDQwOQ==';
-    const whatsappLinks = document.querySelectorAll('#whatsapp-home, #whatsapp-footer');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const encodedPhoneNumber = 'MDUyMzcxMDQwOQ==';
+//     const whatsappLinks = document.querySelectorAll('#whatsapp-home, #whatsapp-footer');
 
-    const decodeBase64 = (encoded) => {
-        return atob(encoded);
-    };
+//     const decodeBase64 = (encoded) => {
+//         return atob(encoded);
+//     };
 
-    const phoneNumber = decodeBase64(encodedPhoneNumber);
+//     const phoneNumber = decodeBase64(encodedPhoneNumber);
 
-    whatsappLinks.forEach(link => {
-        link.href = `https://wa.me/${phoneNumber}`;
-    });
-});
+//     whatsappLinks.forEach(link => {
+//         link.href = `https://wa.me/${phoneNumber}`;
+//     });
+// });
